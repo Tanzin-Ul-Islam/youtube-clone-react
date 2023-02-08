@@ -6,7 +6,7 @@ export default function App() {
   return (
     <BrowserRouter>
 
-      <Box>
+      <Box sx={{backgroundColor:'#000', pt:'10px'}}>
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Feed />} />
