@@ -12,12 +12,9 @@ const options = {
 };
 
 const FetchData = async (endPoint) => {
-    await axios.get(`${BaseUrl}${endPoint}`, options).then(response => {
-        let {data} = response;
-        return data;
-    }).catch(error => {
-        console.log(error);
-    })
+    let response = undefined;
+    response = await axios.get(`${BaseUrl}${endPoint}`, options);
+    return response ? response.data : {};
 }
 
 export { FetchData };

@@ -3,21 +3,22 @@ import { Box, Stack, Typography } from '@mui/material'
 import { Sidebar, Videos } from './';
 import { FetchData } from '../utils/fetchApi';
 export default function Feed() {
+  const [selectedCategory, setselectedCategory] = useState('New')
+  let [videos, setVideos] = useState([]);
+  
   useEffect(() => {
-    FetchData('search?part:snippet&q=' + selectedCategory).then(data => {
-      if (data)
-        console.log('in use',data);
+    FetchData('search?part=snippet&q=' + selectedCategory).then(data => {
+      setVideos(data && data.items);
     });
   }, [selectedCategory])
 
-  const [selectedCategory, setselectedCategory] = useState('New')
-  let [videos, setVideos] = useState([]);
+  
   return (
     <Stack sx={{ flexDirection: { sx: 'column', md: 'row' } }}>
       <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 } }}>
         <Sidebar selectedCategory={selectedCategory} setselectedCategory={setselectedCategory} />
-        <Typography className="copyright" variant='body2' sx={{ mt: 1.5, color: '#fff' }}>
-          Copywright 2023
+        <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
+          Copyright © 2022 JSM Media
         </Typography>
       </Box>
       <Box p={2} sx={{ overflowY: 'auto', height: '90vh', flex: '2' }}>
