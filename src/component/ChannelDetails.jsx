@@ -25,7 +25,7 @@ export default function ChannelDetails() {
             <Box>
                 <div style={{
                     height: '300px',
-                    background: 'linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)',
+                    background: 'linear-gradient(90deg, rgb(247 0 0 / 60%) 0%, rgba(44 41 41) 100%, rgba(0 0 0) 100%)',
                     zIndex: 10,
                 }} />
                 <ChannelCard channelDetail={channelDetail} marginTop="-93px" />
